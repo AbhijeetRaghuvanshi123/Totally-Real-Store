@@ -6,23 +6,14 @@ const Navbar = () => {
     return (
         <div className="navbar glass">
             <h2 className="logo">MyStore</h2>
-
             <ul>
-                <li>
-                    <Link to="/" className={location.pathname === "/" ? "active link" : "link"}>
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/shop" className={location.pathname === "/shop" ? "active link" : "link"}>
-                        Shop
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/cart" className={location.pathname === "/cart" ? "active link" : "link"}>
-                        Cart
-                    </Link>
-                </li>
+                {[['/', 'Home'], ['/shop', 'Shop'], ['/cart', 'Cart']].map(([to, label]) => (
+                    <li key={to}>
+                        <Link to={to} className={location.pathname === to ? 'active link' : 'link'}>
+                            {label}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </div>
     );

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useOutletContext } from "react-router";
+import { useContext } from "react";
+import { ShopContext } from "../App";
 
 const AddProduct = ({ product }) => {
     const [items, setItems] = useState(1);
-    const [cart, setCart] = useOutletContext();
+    const  { setCart } = useContext(ShopContext);
 
     const handleAdd = () => {
         setCart(prev => [
